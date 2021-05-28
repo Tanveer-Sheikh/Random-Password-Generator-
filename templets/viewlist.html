@@ -1,0 +1,65 @@
+{% extends 'home.html' %}
+{%block content %}
+
+{{user.get_username}}
+
+
+
+
+
+
+
+
+{% for pass in passwords %}
+<div class="container py-2">
+    {% if user == pass.user %}
+    <div class=" text-center ">
+
+        <div class="d-flex container-fluid" style="background-color: rgba(177, 33, 33, 0.486);">
+
+            <p class="text-left" style=" font-size: 30px; color: blanchedalmond;">
+                {{ pass.field}}
+            </p>
+
+            <div class=" ml-auto">
+
+                <form action="/pass/delete/" method="POST">
+                    {% csrf_token %}
+                    {% comment %} <input type="image" src="/statics/trash-alt-regular.svg" class="mt-3" name="" width=""
+                        height="30" id="" value="{{pass.id}}"> {% endcomment %}
+
+                    <!-- <img src="/statics/trash-alt-regular.svg" alt="logo"> -->
+                    <!-- <button type="submit" name="id" value="{{pass.id}}" style="display: block;"> delete
+            </button>  -->
+                    <button type="submit" name="id" class="btn btn-outline-dark pt-2 mt-2" value="{{pass.id}}"
+                        style="display: block;">Delete
+                    </button>
+
+                </form>
+            </div>
+
+
+
+        </div>
+
+        <div class="" style="background-color: rgba(252, 252, 252, 0.521); color: rgb(7, 7, 7);">
+
+      
+                <h4 style="color: rgb(155, 19, 53);"><b>{{pass.password}}</b></h4>
+                <p><i>{{pass.discription}}</i></p>
+                <p class=" font-italic  pt-2 text-right ml-auto" style="color: rgb(0, 0, 0);">
+                    Saved on: {{ pass.datetime }}
+             
+
+                </p>
+
+        </div>
+
+    </div>
+
+
+
+    {% endif %}
+</div>
+{% endfor %}
+{% endblock content %}

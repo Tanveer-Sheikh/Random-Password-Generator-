@@ -1,0 +1,17 @@
+{% extends 'home.html' %}
+{%block content %}
+
+
+{% load crispy_forms_tags %} 
+    <div class="container">
+<form method="POST" class="container my-4">
+    {% csrf_token %}
+    <legend class="text-info">Reset Password</legend>
+    {{ form|crispy}}
+    <button type="submit" class="btn btn-primary btn-lg">Sent</button>
+</form>
+
+</div>
+
+
+{% endblock content %}

@@ -1,0 +1,16 @@
+{% extends 'home.html' %}
+{%block content %}
+
+
+<form method="POST" class="container my-4">
+    {% csrf_token %}
+    <div class="container" style="background-color: rgba(255, 248, 220, 0.904); border: 2px solid black;">
+    <legend class="text-info">Make Your Password</legend>
+    {{ form}}
+    <button type="submit" class="btn btn-primary btn-lg">Done</button>
+    
+</div>
+</form>
+
+
+{% endblock content %}

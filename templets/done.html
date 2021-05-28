@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block body %}
+ <div class=" pt-5">
+        <div class="container">
+            {% if messages %}
+    
+            <div class="alert alert-dark  messages" role="alert">
+    
+                {% for message in messages %}
+                {{ message }}
+                {% endfor %}
+    
+            </div>
+            {% endif %}
+        </div>
+<div class="container py-5 px-5" style="border: 3px solid black; background-color: rgba(0, 0, 0, 0.308);">
+    <h1>password Changed Now Kindly Login Again</h1>
+<a href="/login/">
+    <button type="button" class="btn btn-primary btn-lg">Log in</button>
+
+</a>
+
+</div>
+
+
+{% endblock body%}
